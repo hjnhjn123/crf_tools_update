@@ -34,14 +34,14 @@ def pipeline_train(train_f, test_f, model_f, result_f, hdf_f, hdf_key, feature_c
     f_dics = batch_loading(hdf_f, hdf_key)
     basic_logging('loading conf ends')
     train_df = tag_convert(train_f)
-    test_df = tag_convert(test_f)
+    # test_df = tag_convert(test_f)
     # train_df, test_df = process_annotated(train_f, col_names), process_annotated(test_f, col_names)
     basic_logging('loading data ends')
     crf, _, _ = module_crf_train(train_df, f_dics, feature_conf, hdf_key, window_size)
     # test_df = pd.read_table(test_f)
-    y_pred, _, _, index_line = module_crf_fit(test_df, crf, f_dics, feature_conf, hdf_key, window_size, result_f,line=False)
-    y_pred = [i for j in y_pred for i in j]
-    token_text(test_df, y_pred, index_line)
+    # y_pred, _, _, index_line = module_crf_fit(test_df, crf, f_dics, feature_conf, hdf_key, window_size, result_f,line=False)
+    # y_pred = [i for j in y_pred for i in j]
+    # token_text(test_df, y_pred, index_line)
     if model_f:
         jl.dump(crf, model_f)
     return crf
@@ -52,6 +52,7 @@ def pipline_predict(test_f, model_f, hdf_f, hdf_key, feature_conf, window_size):
     tokenizer the text line by line
     '''
     basic_logging('loading conf begins')
+
     model = jl.load(model_f)
     f_dics = batch_loading(hdf_f, hdf_key)
     basic_logging('loading conf ends')
