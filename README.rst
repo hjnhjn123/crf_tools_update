@@ -18,7 +18,12 @@ Note
 This project has been set up using PyScaffold 2.5.7. For details and usage
 information on PyScaffold see http://pyscaffold.readthedocs.org/.
 
-Run
-===========
-python3 run.py test_file  out_dir
-eg: python3 run.py  /Data/token_data/orgin_data/new_mark_data.txt    /Data/token_data/process_data/
+train
+=========
+python3 run.py  train test_file  out_file  train_data
+eg: python3 run.py  /Data/test_data.txt   /Data/predict.txt /Data/train_data.txt
+
+TEST by exist Model
+=========
+python3 run.py chunk test_file  out_file
+eg: python3 run.py  /Data/test_data.txt   /Data/predict.txt
