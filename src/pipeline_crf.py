@@ -152,7 +152,7 @@ def main():
         'validate': lambda: pipeline_validate(valid_f=VALIDATE_F, model_f=MODEL_F, result_f=RESULT_F, hdf_f=HDF_F,
                                               hdf_key=HDF_KEY, feature_conf=FEATURE_CONF, window_size=WINDOW_SIZE,
                                               col_names=HEADER),
-        'chunk': lambda: pipline_predict(test_f=test_file, model_f=MODEL_F, hdf_f=HDF_F, hdf_key=HDF_KEY,
+        'predict': lambda: pipline_predict(test_f=test_file, model_f=MODEL_F, hdf_f=HDF_F, hdf_key=HDF_KEY,
                                          feature_conf=FEATURE_CONF, window_size=WINDOW_SIZE)
     }
     dic[mode]()

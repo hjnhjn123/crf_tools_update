@@ -25,5 +25,5 @@ eg: python3 run.py  /Data/train_data.txt
 
 TEST by exist Model
 =========
-python3 run.py chunk test_file  out_file
+python3 run.py predict test_file  out_file
 eg: python3 run.py  /Data/test_data.txt   /Data/predict.txt
